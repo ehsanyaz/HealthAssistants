@@ -2,12 +2,16 @@ package com.savar_computer.healthassistants;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.savar_computer.healthassistants.Classes.RunningHuman;
 import com.savar_computer.healthassistants.Classes.notification;
@@ -20,6 +24,7 @@ public class Splash extends Activity {
     private TextView txt;
     private RunningHuman human;
 
+    public static SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +46,21 @@ public class Splash extends Activity {
         Typeface typeface = Typeface.createFromAsset(getAssets(), "Font/font.ttf");
         txt.setTypeface(typeface);
 
+        sharedPreferences= PreferenceManager.getDefaultSharedPreferences(Splash.this);
 
         handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(Splash.this, Profile.class);
+                Intent intent=null;
+                if (sharedPreferences.getBoolean("flag",true))
+                {
+                    intent = new Intent(Splash.this, Profile.class);
+                }
+                else
+                    intent=new Intent(Splash.this,Menu.class);
                 startActivity(intent);
+
                 mediaPlayer.stop();
                 finish();
                 human.stopAnim();
