@@ -13,7 +13,5 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
-        stepBar=(RelativeLayout)findViewById(R.id.menu_progressStep_bar);
-
     }
 }
