@@ -7,7 +7,6 @@ import android.graphics.drawable.Drawable;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.RelativeLayout;
 
-import com.savar_computer.healthassistants.R;
 
 
 public class RunningHuman extends android.support.v7.widget.AppCompatImageView implements ValueAnimator.AnimatorUpdateListener {
@@ -18,7 +17,7 @@ public class RunningHuman extends android.support.v7.widget.AppCompatImageView i
 
     public RunningHuman(Context context) {
         super(context);
-        this.setImageResource(R.drawable.h1);
+        //this.setImageResource(R.drawable.h);
 
         RelativeLayout.LayoutParams params=new RelativeLayout.LayoutParams(400,1000);
         this.setLayoutParams(params);
@@ -46,7 +45,7 @@ public class RunningHuman extends android.support.v7.widget.AppCompatImageView i
             String mDrawableName = "h" + c;
             int resID = res.getIdentifier(mDrawableName, "drawable", getContext().getPackageName());
             Drawable drawable = res.getDrawable(resID);
-            this.setImageDrawable(drawable);
+            //this.setImageDrawable(drawable);
             if (c < 5)
                 c++;
             else
