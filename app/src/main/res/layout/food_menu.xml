@@ -57,6 +57,7 @@
                 android:gravity="center"
                 android:background="@color/chart_layout_back">
 
+
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
