@@ -2,11 +2,11 @@ package com.savar_computer.healthassistants;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 
 public class Menu extends Activity {
 
-    private ProgressBar progressBar;
+    private RelativeLayout stepBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -14,11 +14,5 @@ public class Menu extends Activity {
         setContentView(R.layout.menu);
 
 
-
-
-
-        progressBar=(ProgressBar)findViewById(R.id.menu_progress_bar);
-        progressBar.setMax(100);
-        progressBar.setProgress(50);
     }
 }

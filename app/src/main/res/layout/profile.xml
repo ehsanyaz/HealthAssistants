@@ -1,9 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.savar_computer.healthassistants.Profile">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="208dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/edtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:layout_weight="0"
+                    android:ems="10"
+                    android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <Spinner
+                android:id="@+id/spinnerHeight"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignEnd="@+id/spinnerWeight"
+                android:layout_alignRight="@+id/spinnerWeight"
+                android:layout_alignTop="@+id/txtHeight"
+                android:layout_weight="0.2"
+                android:foregroundGravity="center" />
+
+            <Spinner
+                android:id="@+id/spinnerWeight"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_above="@+id/txtSex"
+                android:layout_toLeftOf="@+id/txtWeight"
+                android:layout_toStartOf="@+id/txtWeight"
+                android:layout_weight="0.2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radioButtonMale"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignTop="@+id/radioButtonFemale"
+                        android:layout_toLeftOf="@+id/radioButtonFemale"
+                        android:layout_toStartOf="@+id/radioButtonFemale"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/Male" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonFemale"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignBottom="@+id/txtSex"
+                        android:layout_alignEnd="@+id/edtName"
+                        android:layout_alignRight="@+id/edtName"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/Female" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:text="@string/btnImage" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="171dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="0.2"
+                android:gravity="bottom|center"
+                android:text="@string/Name" />
+
+            <TextView
+                android:id="@+id/txtHeight"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignLeft="@+id/txtName"
+                android:layout_alignStart="@+id/txtName"
+                android:layout_below="@+id/edtName"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="@string/Height" />
+
+            <TextView
+                android:id="@+id/txtWeight"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignLeft="@+id/txtHeight"
+                android:layout_alignStart="@+id/txtHeight"
+                android:layout_centerVertical="true"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="@string/Weight" />
+
+            <TextView
+                android:id="@+id/txtSex"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignLeft="@+id/txtName"
+                android:layout_alignStart="@+id/txtName"
+                android:layout_below="@+id/txtWeight"
+                android:layout_marginTop="0dp"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="@string/Sex" />
+
+            <TextView
+                android:id="@+id/txtImage"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="0dp"
+                android:layout_toEndOf="@+id/spinnerWeight"
+                android:layout_toRightOf="@+id/spinnerWeight"
+                android:layout_weight="0.2"
+                android:gravity="center"
+                android:text="@string/Image" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>
