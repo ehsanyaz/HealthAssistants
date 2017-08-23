@@ -4,4 +4,12 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="background">#E4F1FE</color>
+    <color name="splashBackground">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="POMEGRANATE">#E26A6A</color>
+    <color name="EBONYCLAY">#22313F</color>
+    <color name="GOSSIP">#87D37C</color>
+    <color name="LIGHTWISTERIA">#BE90D4</color>
+    <color name="CASCADE">#95A5A6</color>
+
 </resources>

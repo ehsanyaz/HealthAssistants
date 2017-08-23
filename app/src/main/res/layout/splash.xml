@@ -4,8 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
-    tools:context="com.savar_computer.healthassistants.Splash">
+    android:background="@color/splashBackground"
+    tools:context="com.savar_computer.healthassistants.Splash"
+    android:id="@+id/splash_layout"
+    android:layout_gravity="center"
+    android:gravity="clip_horizontal">
 
     <TextView
         android:id="@+id/splash_txtview"
@@ -13,8 +16,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
         android:text="تیم برنامه نویسی شرکت فناوران صَوَر رایانه"
         android:textAlignment="center"
         android:textSize="18sp" />
+
 
 </RelativeLayout>
