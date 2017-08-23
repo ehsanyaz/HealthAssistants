@@ -7,11 +7,15 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -21,17 +25,24 @@ import static android.app.Activity.RESULT_OK;
 
 public class Profile extends Activity
 {
-    Spinner spinnerHeight;
-    ArrayList<String> HeightItems;
-    Spinner spinnerWeight;
-    ArrayList<String> WeightItems;
+    private Spinner spinnerHeight;
+    private ArrayList<String> HeightItems;
+    private Spinner spinnerWeight;
+    private ArrayList<String> WeightItems;
+
+    private EditText edtName;
+    private RadioButton radioButtonMale;
+    private RadioButton radioButtonFemale;
+    private Button btnAdd;
+
+    private String name,height,weight,sex;
 
     private static int IMG_RESULT = 1;
-    String ImageDecode;
-    //ImageView imageViewLoad;
-    Button LoadImage;
-    Intent intent;
-    String[] FILE;
+    private String ImageDecode;
+    private ImageView imageViewLoad;
+    private Button LoadImage;
+    private Intent intent;
+    private String[] FILE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,7 +50,12 @@ public class Profile extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
 
-        ////////////////////////////////////////////////////////////////////////////////////////////Spinner
+        ////////////////////////////////////////////////////////////////////////////////////////////EditText
+        edtName=(EditText) findViewById(R.id.edtName);
+
+        name=edtName.getText().toString();
+
+        ////////////////////////////////////////////////////////////////////////////////////////////Spinner Height
         spinnerHeight=findViewById(R.id.spinnerHeight);
 
         HeightItems = new ArrayList<String>();
@@ -59,8 +75,7 @@ public class Profile extends Activity
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
             {
-//                String item = adapterView.getItemAtPosition(i).toString();
-//                Toast.makeText(Profile.this, item , Toast.LENGTH_LONG).show();
+                height=adapterView.getItemAtPosition(i).toString();
             }
 
             @Override
@@ -70,7 +85,7 @@ public class Profile extends Activity
             }
         });
 
-
+        ////////////////////////////////////////////////////////////////////////////////////////////Spinner Weight
         spinnerWeight=findViewById(R.id.spinnerWeight);
 
         WeightItems = new ArrayList<String>();
@@ -85,8 +100,7 @@ public class Profile extends Activity
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
             {
-//                String item = adapterView.getItemAtPosition(i).toString();
-//                Toast.makeText(Profile.this, item , Toast.LENGTH_LONG).show();
+                weight=adapterView.getItemAtPosition(i).toString();
             }
 
             @Override
@@ -96,7 +110,32 @@ public class Profile extends Activity
             }
         });
 
+        ////////////////////////////////////////////////////////////////////////////////////////////RadioGroup
+        radioButtonMale=(RadioButton) findViewById(R.id.radioButtonMale);
+        radioButtonFemale=(RadioButton) findViewById(R.id.radioButtonFemale);
+
+        radioButtonMale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (b)
+                    sex="male";
+            }
+        });
+
+        radioButtonFemale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b)
+            {
+                if (b)
+                    sex="female";
+            }
+        });
+
         ////////////////////////////////////////////////////////////////////////////////////////////Image
+        imageViewLoad = (ImageView) findViewById(R.id.image);
         LoadImage = (Button)findViewById(R.id.btnImage);
 
         LoadImage.setOnClickListener(new View.OnClickListener()
@@ -113,7 +152,7 @@ public class Profile extends Activity
             }
         });
 
-    }
+    }// end of onCreate
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
@@ -138,14 +177,14 @@ public class Profile extends Activity
                 ImageDecode = cursor.getString(columnIndex);
                 cursor.close();
 
-//                imageViewLoad.setImageBitmap(BitmapFactory
-//                        .decodeFile(ImageDecode));
-
+                Toast.makeText(this, "تصویر به درستی انتخاب شد", Toast.LENGTH_LONG).show();
+                imageViewLoad.setImageBitmap(BitmapFactory.decodeFile(ImageDecode));
             }
         }
         catch (Exception e)
         {
-            Toast.makeText(this, "Please try again", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "لطفاٌ دوباره امتحان کنید", Toast.LENGTH_LONG).show();
+            Log.i("shaho",e+"");
         }
 
     }
