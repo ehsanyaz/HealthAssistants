@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@color/splashBackground"
     tools:context="com.savar_computer.healthassistants.Splash"
-    android:id="@+id/splash_layout">
+    android:id="@+id/splash_layout"
+    android:layout_gravity="center"
+    android:gravity="clip_horizontal">
 
     <TextView
         android:id="@+id/splash_txtview"

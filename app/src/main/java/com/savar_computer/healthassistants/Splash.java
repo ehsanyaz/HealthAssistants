@@ -46,6 +46,7 @@ public class Splash extends Activity {
                 startActivity(intent);
                 mediaPlayer.stop();
                 finish();
+                human.stopAnim();
             }
         }, 2000);
 
