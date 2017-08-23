@@ -13,6 +13,8 @@ public class Menu extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
+
+
         progressBar=(ProgressBar)findViewById(R.id.menu_progress_bar);
         progressBar.setMax(100);
         progressBar.setProgress(50);
