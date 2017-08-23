@@ -19,6 +19,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Space;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -41,7 +42,7 @@ public class Profile extends Activity
     private RadioButton radioButtonFemale;
     private Button btnAdd;
 
-    private String name,height,weight,sex;
+    private String name,height,weight,sex,image;
     SharedPreferences.Editor edit=Splash.sharedPreferences.edit();
 
 
@@ -212,7 +213,10 @@ public class Profile extends Activity
             {
                 Uri selectedImageUri = data.getData();
                 selectedImagePath = getPath(selectedImageUri);
-                imageViewLoad.setImageURI(selectedImageUri);
+                edit.putString("image",selectedImagePath);
+                edit.commit();
+                Toast.makeText(Profile.this, selectedImagePath,Toast.LENGTH_LONG).show();
+                //imageViewLoad.setImageURI(selectedImageUri);
             }
         }
 
