@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">HealthAssistants</string>
+    <string name="Name">نام:</string>
+    <string name="Height">قد:</string>
+    <string name="Weight">وزن:</string>
+    <string name="Male">مرد</string>
+    <string name="Female">زن</string>
+    <string name="Sex">جنسیت:</string>
+    <string name="Image">تصویر:</string>
+    <string name="btnImage">انتخاب تصویر</string>
 </resources>
