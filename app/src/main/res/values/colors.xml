@@ -12,5 +12,7 @@
     <color name="LIGHTWISTERIA">#BE90D4</color>
     <color name="CASCADE">#95A5A6</color>
     <color name="food_layou_back">#F44336</color>
+    <color name="activity_layout_back">#FF4651</color>
+    <color name="chart_layout_back">#65A844</color>
 
 </resources>

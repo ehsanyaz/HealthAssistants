@@ -9,8 +9,7 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,15 +21,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:orientation="horizontal"
+                android:background="@color/food_layou_back"
                 android:gravity="center"
-                android:background="@color/food_layou_back">
+                android:orientation="horizontal">
 
                 <ImageView
                     android:layout_width="75dp"
                     android:layout_height="75dp"
-                    android:src="@drawable/food"
-                    />
+                    android:src="@drawable/food" />
 
             </LinearLayout>
 
@@ -38,9 +36,16 @@
                 android:id="@+id/food_menu_activity_enter_layout"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_gravity="center"
                 android:layout_margin="10dp"
+                android:background="@color/activity_layout_back"
+                android:gravity="center"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/activity" />
             </LinearLayout>
 
             <LinearLayout
@@ -48,8 +53,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="10dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:background="@color/chart_layout_back">
 
+                <ImageView
+                    android:layout_width="75dp"
+                    android:layout_height="75dp"
+                    android:src="@drawable/chart" />
             </LinearLayout>
 
             <LinearLayout
