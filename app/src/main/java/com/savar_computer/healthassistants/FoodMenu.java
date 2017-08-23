@@ -1,9 +1,9 @@
 package com.savar_computer.healthassistants;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
-public class FoodMenu extends AppCompatActivity {
+public class FoodMenu extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

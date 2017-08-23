@@ -16,21 +16,21 @@
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen">
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Profile" />
         <activity
             android:name=".Menu"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Black.NoTitleBar">
-            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".FoodMenu" />
-        <activity android:name=".Classes.StepMenu"></activity>
+        <activity android:name=".StepMenu"></activity>
     </application>
 
 </manifest>

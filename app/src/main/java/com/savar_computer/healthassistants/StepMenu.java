@@ -1,11 +1,11 @@
-package com.savar_computer.healthassistants.Classes;
+package com.savar_computer.healthassistants;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
 import com.savar_computer.healthassistants.R;
 
-public class StepMenu extends AppCompatActivity {
+public class StepMenu extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
