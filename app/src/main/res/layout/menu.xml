@@ -101,7 +101,7 @@
                     android:layout_marginRight="15dp"
                     android:layout_marginTop="15dp"
                     android:textAlignment="center"
-                    android:textColor="@color/splashBackground" />
+                    android:textColor="@color/white" />
 
                 <ImageView
                     android:id="@+id/imageView2"
