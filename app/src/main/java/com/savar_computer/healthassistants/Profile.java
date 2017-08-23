@@ -2,10 +2,13 @@ package com.savar_computer.healthassistants;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +22,9 @@ import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
@@ -36,6 +42,8 @@ public class Profile extends Activity
     private Button btnAdd;
 
     private String name,height,weight,sex;
+    SharedPreferences.Editor edit=Splash.sharedPreferences.edit();
+
 
     private static int IMG_RESULT = 1;
     private String ImageDecode;
@@ -43,6 +51,10 @@ public class Profile extends Activity
     private Button LoadImage;
     private Intent intent;
     private String[] FILE;
+
+    private static final int SELECT_PICTURE = 1;
+
+    private String selectedImagePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,8 +64,6 @@ public class Profile extends Activity
 
         ////////////////////////////////////////////////////////////////////////////////////////////EditText
         edtName=(EditText) findViewById(R.id.edtName);
-
-        name=edtName.getText().toString();
 
         ////////////////////////////////////////////////////////////////////////////////////////////Spinner Height
         spinnerHeight=findViewById(R.id.spinnerHeight);
@@ -76,6 +86,8 @@ public class Profile extends Activity
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
             {
                 height=adapterView.getItemAtPosition(i).toString();
+                edit.putString("height",height);
+                edit.commit();
             }
 
             @Override
@@ -101,6 +113,8 @@ public class Profile extends Activity
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
             {
                 weight=adapterView.getItemAtPosition(i).toString();
+                edit.putString("weight",weight);
+                edit.commit();
             }
 
             @Override
@@ -120,7 +134,11 @@ public class Profile extends Activity
             public void onCheckedChanged(CompoundButton compoundButton, boolean b)
             {
                 if (b)
-                    sex="male";
+                {
+                    sex = "male";
+                    edit.putString("sex",sex);
+                    edit.commit();
+                }
             }
         });
 
@@ -130,7 +148,11 @@ public class Profile extends Activity
             public void onCheckedChanged(CompoundButton compoundButton, boolean b)
             {
                 if (b)
-                    sex="female";
+                {
+                    sex = "female";
+                    edit.putString("sex",sex);
+                    edit.commit();
+                }
             }
         });
 
@@ -144,11 +166,37 @@ public class Profile extends Activity
             @Override
             public void onClick(View v)
             {
+                intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
+            }
+        });
 
-                intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        ////////////////////////////////////////////////////////////////////////////////////////////Button Add
+        btnAdd=(Button) findViewById(R.id.btnAdd);
 
-                startActivityForResult(intent, IMG_RESULT);
-
+        btnAdd.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                name=edtName.getText().toString();
+                edit.putString("name",name);
+                edit.commit();
+                if (Splash.sharedPreferences.getString("name",null)==null || Splash.sharedPreferences.getString("height",null)==null || Splash.sharedPreferences.getString("weight",null)==null
+                        || Splash.sharedPreferences.getString("sex",null)==null)
+                {
+                    Toast.makeText(Profile.this,"لطفاٌ اطلاعات را تکمیل نمایید",Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    edit.putBoolean("flag", false);
+                    edit.commit();
+                    intent = new Intent(Profile.this, Menu.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
 
@@ -157,36 +205,42 @@ public class Profile extends Activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data)
     {
-        super.onActivityResult(requestCode, resultCode, data);
-        try
+        if (resultCode == RESULT_OK)
         {
-
-            if (requestCode == IMG_RESULT && resultCode == RESULT_OK && null != data)
+            if (requestCode == SELECT_PICTURE)
             {
-
-
-                Uri URI = data.getData();
-                String[] FILE = { MediaStore.Images.Media.DATA };
-
-
-                Cursor cursor = getContentResolver().query(URI, FILE, null, null, null);
-
-                cursor.moveToFirst();
-
-                int columnIndex = cursor.getColumnIndex(FILE[0]);
-                ImageDecode = cursor.getString(columnIndex);
-                cursor.close();
-
-                Toast.makeText(this, "تصویر به درستی انتخاب شد", Toast.LENGTH_LONG).show();
-                imageViewLoad.setImageBitmap(BitmapFactory.decodeFile(ImageDecode));
+                Uri selectedImageUri = data.getData();
+                selectedImagePath = getPath(selectedImageUri);
+                imageViewLoad.setImageURI(selectedImageUri);
             }
-        }
-        catch (Exception e)
-        {
-            Toast.makeText(this, "لطفاٌ دوباره امتحان کنید", Toast.LENGTH_LONG).show();
-            Log.i("shaho",e+"");
         }
 
     }
+
+    public String getPath(Uri uri)
+    {
+        // just some safety built in
+        if( uri == null )
+        {
+            // TODO perform some logging or show user feedback
+            return null;
+        }
+        // try to retrieve the image from the media store first
+        // this will only work for images selected from gallery
+        String[] projection = { MediaStore.Images.Media.DATA };
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+        if( cursor != null )
+        {
+            int column_index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            String path = cursor.getString(column_index);
+            cursor.close();
+            return path;
+        }
+        // this is our fallback here
+        return uri.getPath();
+    }
+
 
 }// end of class
