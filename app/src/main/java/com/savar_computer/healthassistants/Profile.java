@@ -184,6 +184,7 @@ public class Profile extends Activity
                 name=edtName.getText().toString();
                 edit.putString("name",name);
                 edit.commit();
+
                 if (Splash.sharedPreferences.getString("name",null)==null || Splash.sharedPreferences.getString("height",null)==null || Splash.sharedPreferences.getString("weight",null)==null
                         || Splash.sharedPreferences.getString("sex",null)==null)
                 {
