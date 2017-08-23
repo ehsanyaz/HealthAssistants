@@ -45,7 +45,7 @@ public class RunningHuman extends android.support.v7.widget.AppCompatImageView i
             String mDrawableName = "h" + c;
             int resID = res.getIdentifier(mDrawableName, "drawable", getContext().getPackageName());
             Drawable drawable = res.getDrawable(resID);
-            //this.setImageDrawable(drawable);
+            this.setImageDrawable(drawable);
             if (c < 5)
                 c++;
             else
