@@ -8,4 +8,5 @@
     <string name="Sex">جنسیت:</string>
     <string name="Image">تصویر:</string>
     <string name="btnImage">انتخاب تصویر</string>
+    <string name="Add">ثبت</string>
 </resources>
