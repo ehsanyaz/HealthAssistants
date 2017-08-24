@@ -22,6 +22,7 @@ public class StepMenu extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step_menu);
 
+
         imageView1=(ImageView) findViewById(R.id.imageView11);
         imageView2=(ImageView) findViewById(R.id.imageView22);
         imageView3=(ImageView) findViewById(R.id.imageView33);
