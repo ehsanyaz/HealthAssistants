@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/add_activity_raw"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:gravity="right"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/add_activity_raw_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/activity" />
+
+    <TextView
+        android:id="@+id/add_activity_raw_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp" />
+
+    <TextView
+        android:id="@+id/add_activity_raw_calley"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="ثبت" />
+
+</LinearLayout>
