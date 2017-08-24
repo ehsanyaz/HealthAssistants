@@ -1,6 +1,7 @@
 package com.savar_computer.healthassistants.Classes;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class ActivityBlackBoard {
         try {
             setMatn(context);
         } catch (IOException e) {
-
+            //Toast.makeText(context,"Sorry"+"",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -43,6 +44,8 @@ public class ActivityBlackBoard {
             count++;
         }
         reader.close();
+        //Toast.makeText(context,count+"",Toast.LENGTH_LONG).show();
+
     }
 
     private static void setMatn(Context context) throws IOException {

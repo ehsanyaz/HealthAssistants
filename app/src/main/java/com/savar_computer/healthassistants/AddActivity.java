@@ -2,7 +2,9 @@ package com.savar_computer.healthassistants;
 
 import android.app.Activity;
 import android.app.ListActivity;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -21,11 +23,16 @@ public class AddActivity extends ListActivity {
     private String matn[][];
     private String title[];
     private String callery[];
+    private SharedPreferences pref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_activity);
+
+        ActivityBlackBoard activityBlackBoard = new ActivityBlackBoard(getApplicationContext());
+
+        pref = PreferenceManager.getDefaultSharedPreferences(this);
 
         this.matn = ActivityBlackBoard.getMatn();
         this.title = new String[ActivityBlackBoard.count];
@@ -54,9 +61,9 @@ public class AddActivity extends ListActivity {
             container = (LinearLayout) row.findViewById(R.id.add_activity_raw);
 
             TextView Title = (TextView) row.findViewById(R.id.add_activity_raw_title);
-            TextView Callery = (TextView) row.findViewById(R.id.add_food_raw_callery);
+            TextView Callery = (TextView) row.findViewById(R.id.add_activity_raw_calley);
 
-            if (!Splash.sharedPreferences.getBoolean("Light", false)) {
+            if (pref.getBoolean("Light", false)) {
                 //do nothing
             } else {
                 Title.setTextColor(getResources().getColor(R.color.white));
@@ -64,10 +71,10 @@ public class AddActivity extends ListActivity {
                 container.setBackgroundColor(getResources().getColor(R.color.DarkBackGround));
             }
 
-            if (Splash.sharedPreferences.getString("listPref", "2").trim().equals("1")) {
+            if (pref.getString("listPref", "2").trim().equals("1")) {
                 Title.setTextSize(32f);
                 Callery.setTextSize(22f);
-            } else if (Splash.sharedPreferences.getString("listPref", "").trim().equals("3")) {
+            } else if (pref.getString("listPref", "").trim().equals("3")) {
                 Title.setTextSize(20f);
                 Callery.setTextSize(10f);
             }
