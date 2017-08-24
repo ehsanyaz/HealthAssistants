@@ -169,6 +169,7 @@
                     android:src="@drawable/aim" />
 
                 <ImageView
+                    android:id="@+id/menu_setting"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center_vertical"

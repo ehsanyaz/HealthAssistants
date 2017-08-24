@@ -10,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.savar_computer.healthassistants.Classes.Setting;
+
 public class Menu extends Activity {
 
     private ProgressBar progressBar;
@@ -19,12 +21,23 @@ public class Menu extends Activity {
 
     private LinearLayout foodLayout,stepLayout;
 
-    private ImageView imgEdit;
+    private ImageView imgEdit,setting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
+
+
+        setting=(ImageView)findViewById(R.id.menu_setting);
+        setting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Menu.this, Setting.class);
+                startActivity(intent);
+            }
+        });
+
 
         foodLayout=(LinearLayout)findViewById(R.id.menu_food_layout);
         foodLayout.setOnClickListener(new View.OnClickListener() {

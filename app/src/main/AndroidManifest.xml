@@ -25,6 +25,7 @@
         <activity android:name=".Profile" />
         <activity android:name=".EditProfile" />
         <activity android:name=".FoodMenu" />
+        <activity android:name=".Classes.Setting" />
         <activity android:name=".StepMenu" />
         <activity
             android:name=".Menu"

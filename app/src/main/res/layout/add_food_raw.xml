@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:gravity="right"
     android:orientation="vertical"
-    android:id="@+id/add_food_raw">
+    android:id="@+id/add_food_raw"
+    android:background="@color/background">
 
     <ImageView
         android:id="@+id/raw_image"
