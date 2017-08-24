@@ -227,6 +227,7 @@ public class Profile extends Activity
     public static String encodeTobase64(Bitmap image)
     {
         Bitmap immage = image;
+
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         immage.compress(Bitmap.CompressFormat.PNG, 100, baos);
         byte[] b = baos.toByteArray();
