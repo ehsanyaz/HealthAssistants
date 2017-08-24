@@ -30,8 +30,6 @@ public class AddActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_activity);
 
-        ActivityBlackBoard activityBlackBoard = new ActivityBlackBoard(getApplicationContext());
-
         pref = PreferenceManager.getDefaultSharedPreferences(this);
 
         this.matn = ActivityBlackBoard.getMatn();

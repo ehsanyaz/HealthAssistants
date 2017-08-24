@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.savar_computer.healthassistants.Classes.ActivityBlackBoard;
 import com.savar_computer.healthassistants.Classes.BlackBoard;
 import com.savar_computer.healthassistants.Classes.RunningHuman;
 import com.savar_computer.healthassistants.Classes.Notification;
@@ -32,6 +33,7 @@ public class Splash extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
+        ActivityBlackBoard activityBlackBoard = new ActivityBlackBoard(getApplicationContext());
         new BlackBoard(getApplicationContext());
 
         Notification nt=new Notification(getApplicationContext());
