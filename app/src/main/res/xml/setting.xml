@@ -1,0 +1,21 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:title="Setting">
+    <PreferenceCategory android:title="BackGround">
+        <CheckBoxPreference
+            android:title="Theme"
+            android:defaultValue="false"
+            android:key="Light"
+            android:summaryOn="Dark"
+            android:summaryOff="Light"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="Font Size">
+        <ListPreference
+            android:title="Pick your favourite Font Size"
+            android:key="listPref"
+            android:defaultValue="3"
+            android:entries="@array/listArray"
+            android:entryValues="@array/listValues" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
