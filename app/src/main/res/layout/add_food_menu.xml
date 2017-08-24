@@ -17,7 +17,6 @@
         android:weightSum="2">
 
         <LinearLayout
-            android:id="@+id/add_food_food"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="20dp"
@@ -25,6 +24,7 @@
             android:orientation="horizontal">
 
             <ImageView
+                android:id="@+id/add_food_food"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/rice" />
@@ -38,7 +38,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/add_food_snack"
+                android:id="@+id/add_food_fast_food"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/fastfood" />
