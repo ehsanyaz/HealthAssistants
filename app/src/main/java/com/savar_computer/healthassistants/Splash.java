@@ -69,6 +69,7 @@ public class Splash extends Activity {
                 mediaPlayer.stop();
                 finish();
                 human.stopAnim();
+
             }
         }, 2000);
 
