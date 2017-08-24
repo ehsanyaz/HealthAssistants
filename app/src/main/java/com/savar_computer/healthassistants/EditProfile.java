@@ -159,12 +159,14 @@ public class EditProfile extends Activity
         });
 
         ////////////////////////////////////////////////////////////////////////////////////////////Image
-        imageView = (ImageView) findViewById(R.id.Image2);
-        imageView.setImageResource(0);
-        imageView.setBackgroundResource(R.drawable.white);
-        imageView.setImageBitmap(decodeBase64(Splash.sharedPreferences.getString("image",null)));
-        LoadImage = (Button)findViewById(R.id.btnImage2);
-
+        if (Splash.sharedPreferences.getString("image",null)!= null)
+        {
+            imageView = (ImageView) findViewById(R.id.Image2);
+            imageView.setImageResource(0);
+            imageView.setBackgroundResource(R.drawable.white);
+            imageView.setImageBitmap(decodeBase64(Splash.sharedPreferences.getString("image", null)));
+        }
+        LoadImage = (Button) findViewById(R.id.btnImage2);
         LoadImage.setOnClickListener(new View.OnClickListener()
         {
 
