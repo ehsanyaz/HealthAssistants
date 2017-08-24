@@ -11,10 +11,10 @@ import android.support.v4.app.NotificationCompat;
 import com.savar_computer.healthassistants.Menu;
 import com.savar_computer.healthassistants.R;
 
-public class notification {
+public class Notification {
     private static Context context;
 
-    public notification(Context context){
+    public Notification(Context context){
         this.context=context;
     }
 
@@ -35,7 +35,7 @@ public class notification {
         NotificationManager notificationManager =
                 (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        notificationManager.notify(id /* ID of notification */,
+        notificationManager.notify(id /* ID of Notification */,
                 notificationBuilder.build());
     }
 }

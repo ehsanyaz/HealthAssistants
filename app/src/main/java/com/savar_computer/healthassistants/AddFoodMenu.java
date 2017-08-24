@@ -24,7 +24,7 @@ public class AddFoodMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 BlackBoard.addFoodSelected= BlackBoard.FoodSelected.food;
-                Intent intent=new Intent(getApplicationContext(),addFood.class);
+                Intent intent=new Intent(getApplicationContext(),AddFood.class);
                 startActivity(intent);
             }
         });
@@ -35,7 +35,7 @@ public class AddFoodMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 BlackBoard.addFoodSelected= BlackBoard.FoodSelected.fast_food;
-                Intent intent=new Intent(getApplicationContext(),addFood.class);
+                Intent intent=new Intent(getApplicationContext(),AddFood.class);
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class AddFoodMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 BlackBoard.addFoodSelected= BlackBoard.FoodSelected.drink;
-                Intent intent=new Intent(getApplicationContext(),addFood.class);
+                Intent intent=new Intent(getApplicationContext(),AddFood.class);
                 startActivity(intent);
             }
         });
@@ -57,7 +57,7 @@ public class AddFoodMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 BlackBoard.addFoodSelected= BlackBoard.FoodSelected.fruit;
-                Intent intent=new Intent(getApplicationContext(),addFood.class);
+                Intent intent=new Intent(getApplicationContext(),AddFood.class);
                 startActivity(intent);
             }
         });

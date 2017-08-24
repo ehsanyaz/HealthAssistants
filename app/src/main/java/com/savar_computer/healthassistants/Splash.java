@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.savar_computer.healthassistants.Classes.BlackBoard;
 import com.savar_computer.healthassistants.Classes.RunningHuman;
-import com.savar_computer.healthassistants.Classes.notification;
+import com.savar_computer.healthassistants.Classes.Notification;
 
 public class Splash extends Activity {
 
@@ -34,7 +34,7 @@ public class Splash extends Activity {
 
         new BlackBoard(getApplicationContext());
 
-        notification nt=new notification(getApplicationContext());
+        Notification nt=new Notification(getApplicationContext());
         nt.sendNotification("سلام!مدتی بود به ما سر نزده بودی!!!","همیار سلامت",1);
 
         layout = (RelativeLayout) findViewById(R.id.splash_layout);

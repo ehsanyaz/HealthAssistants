@@ -24,7 +24,7 @@
         </activity>
         <activity android:name=".Profile" />
         <activity android:name=".EditProfile" />
-        <activity android:name=".FoodMenu" />
+        <activity android:name=".FoodActivity" />
         <activity android:name=".Setting" />
         <activity android:name=".StepMenu" />
         <activity
@@ -34,8 +34,11 @@
             >
         </activity>
         <activity android:name=".AddFoodMenu" />
-        <activity android:name=".addFood" />
-        <activity android:name=".Weight"></activity>
+        <activity android:name=".AddFood" />
+        <activity android:name=".Weight" />
+        <activity android:name=".AddActivity" />
+        <activity android:name=".WeightCharts" />
+        <activity android:name=".Advise"></activity>
     </application>
 
 </manifest>

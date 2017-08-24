@@ -41,7 +41,7 @@ public class Menu extends Activity {
         foodLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),FoodMenu.class);
+                Intent intent=new Intent(getApplicationContext(),FoodActivity.class);
                 startActivity(intent);
             }
         });

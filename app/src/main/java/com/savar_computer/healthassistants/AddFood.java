@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.savar_computer.healthassistants.Classes.BlackBoard;
 
-public class addFood extends ListActivity {
+public class AddFood extends ListActivity {
 
 
 
@@ -53,7 +53,7 @@ public class addFood extends ListActivity {
     ////------------------------------------------------------Array Adaptor
     class AA extends ArrayAdapter<String> {
         public AA() {
-            super(addFood.this, R.layout.add_food_raw, title);
+            super(AddFood.this, R.layout.add_food_raw, title);
         }
 
         @Override
