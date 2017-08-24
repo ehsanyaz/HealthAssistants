@@ -1,6 +1,7 @@
 package com.savar_computer.healthassistants;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -35,7 +36,8 @@ public class StepMenu extends Activity
             @Override
             public void onClick(View view)
             {
-
+                Intent intent = new Intent(StepMenu.this, PedometerActivity.class);
+                startActivity(intent);
             }
         });
 
