@@ -22,12 +22,12 @@ public class StepMenu extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step_menu);
 
-        imageView1=(ImageView) findViewById(R.id.imageView1);
-        imageView2=(ImageView) findViewById(R.id.imageView2);
-        imageView3=(ImageView) findViewById(R.id.imageView3);
-        imageView4=(ImageView) findViewById(R.id.imageView4);
-        imageView5=(ImageView) findViewById(R.id.imageView5);
-        imageView6=(ImageView) findViewById(R.id.imageView6);
+        imageView1=(ImageView) findViewById(R.id.imageView11);
+        imageView2=(ImageView) findViewById(R.id.imageView22);
+        imageView3=(ImageView) findViewById(R.id.imageView33);
+        imageView4=(ImageView) findViewById(R.id.imageView44);
+        imageView5=(ImageView) findViewById(R.id.imageView55);
+        imageView6=(ImageView) findViewById(R.id.imageView66);
 
         imageView1.setOnClickListener(new View.OnClickListener()
         {
