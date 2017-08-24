@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 public class FoodMenu extends Activity {
 
     private LinearLayout addFood;
+    private LinearLayout weight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,15 @@ public class FoodMenu extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(getApplicationContext(),AddFoodMenu.class);
+                startActivity(intent);
+            }
+        });
+
+        weight=(LinearLayout)findViewById(R.id.food_menu_weight_enter_layout);
+        weight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(FoodMenu.this,Weight.class);
                 startActivity(intent);
             }
         });

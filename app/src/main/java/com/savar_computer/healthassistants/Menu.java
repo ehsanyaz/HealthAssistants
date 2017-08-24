@@ -10,8 +10,6 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.savar_computer.healthassistants.Classes.Setting;
-
 public class Menu extends Activity {
 
     private ProgressBar progressBar;

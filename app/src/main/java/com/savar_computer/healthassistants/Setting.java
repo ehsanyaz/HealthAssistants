@@ -1,4 +1,4 @@
-package com.savar_computer.healthassistants.Classes;
+package com.savar_computer.healthassistants;
 
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
