@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.savar_computer.healthassistants.Profile">
+    tools:context="com.savar_computer.healthassistants.EditProfile">
 
 
     <LinearLayout
@@ -29,7 +29,7 @@
                 android:orientation="horizontal">
 
                 <EditText
-                    android:id="@+id/edtName"
+                    android:id="@+id/edtName2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -43,7 +43,7 @@
             </LinearLayout>
 
             <Spinner
-                android:id="@+id/spinnerHeight"
+                android:id="@+id/spinnerHeight2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_alignEnd="@+id/spinnerWeight"
@@ -53,7 +53,7 @@
                 android:foregroundGravity="center" />
 
             <Spinner
-                android:id="@+id/spinnerWeight"
+                android:id="@+id/spinnerWeight2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_above="@+id/txtSex"
@@ -68,30 +68,30 @@
                 android:orientation="horizontal">
 
                 <RadioGroup
-                    android:id="@+id/rdgSex"
+                    android:id="@+id/rdgSex2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radioButtonFemale"
+                        android:id="@+id/radioButtonFemale2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignBottom="@+id/txtSex"
-                        android:layout_alignEnd="@+id/edtName"
-                        android:layout_alignRight="@+id/edtName"
+                        android:layout_alignBottom="@+id/txtSex2"
+                        android:layout_alignEnd="@+id/edtName2"
+                        android:layout_alignRight="@+id/edtName2"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="@string/Female" />
 
                     <RadioButton
-                        android:id="@+id/radioButtonMale"
+                        android:id="@+id/radioButtonMale2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_alignTop="@+id/radioButtonFemale"
-                        android:layout_toLeftOf="@+id/radioButtonFemale"
-                        android:layout_toStartOf="@+id/radioButtonFemale"
+                        android:layout_alignTop="@+id/radioButtonFemale2"
+                        android:layout_toLeftOf="@+id/radioButtonFemale2"
+                        android:layout_toStartOf="@+id/radioButtonFemale2"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:text="@string/Male" />
@@ -115,17 +115,17 @@
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/Image"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/Image2"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_alignParentEnd="true"
                         android:layout_alignParentRight="true"
-                        android:layout_toRightOf="@+id/btnImage"
+                        android:layout_toRightOf="@+id/btnImage2"
                         android:background="@drawable/profile" />
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/btnImage"
+                    android:id="@+id/btnImage2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
@@ -145,7 +145,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtName"
+                android:id="@+id/txtName2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_alignParentRight="true"
@@ -158,12 +158,12 @@
                 android:text="@string/Name" />
 
             <TextView
-                android:id="@+id/txtHeight"
+                android:id="@+id/txtHeight2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_alignLeft="@+id/txtName"
-                android:layout_alignStart="@+id/txtName"
-                android:layout_below="@+id/edtName"
+                android:layout_alignLeft="@+id/txtName2"
+                android:layout_alignStart="@+id/txtName2"
+                android:layout_below="@+id/edtName2"
                 android:layout_marginLeft="0dp"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
@@ -172,36 +172,36 @@
                 android:text="@string/Height" />
 
             <TextView
-                android:id="@+id/txtWeight"
+                android:id="@+id/txtWeight2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_alignLeft="@+id/txtHeight"
-                android:layout_alignStart="@+id/txtHeight"
+                android:layout_alignLeft="@+id/txtHeight2"
+                android:layout_alignStart="@+id/txtHeight2"
                 android:layout_centerVertical="true"
                 android:layout_weight="0.2"
                 android:gravity="center"
                 android:text="@string/Weight" />
 
             <TextView
-                android:id="@+id/txtSex"
+                android:id="@+id/txtSex2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_alignLeft="@+id/txtName"
-                android:layout_alignStart="@+id/txtName"
-                android:layout_below="@+id/txtWeight"
+                android:layout_alignLeft="@+id/txtName2"
+                android:layout_alignStart="@+id/txtName2"
+                android:layout_below="@+id/txtWeight2"
                 android:layout_marginTop="0dp"
                 android:layout_weight="0.2"
                 android:gravity="center"
                 android:text="@string/Sex" />
 
             <TextView
-                android:id="@+id/txtImage"
+                android:id="@+id/txtImage2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="0dp"
-                android:layout_toEndOf="@+id/spinnerWeight"
-                android:layout_toRightOf="@+id/spinnerWeight"
+                android:layout_toEndOf="@+id/spinnerWeight2"
+                android:layout_toRightOf="@+id/spinnerWeight2"
                 android:layout_weight="0.2"
                 android:gravity="center"
                 android:text="@string/Image" />
@@ -210,7 +210,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnAdd"
+        android:id="@+id/btnAdd2"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_weight="0.1"

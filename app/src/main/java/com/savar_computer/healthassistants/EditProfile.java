@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -24,37 +25,39 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Profile extends Activity
+public class EditProfile extends Activity
 {
-    private Spinner spinnerHeight;
+    private Spinner spinnerHeight2;
     private ArrayList<String> HeightItems;
-    private Spinner spinnerWeight;
+    private Spinner spinnerWeight2;
     private ArrayList<String> WeightItems;
 
-    private EditText edtName;
-    private RadioButton radioButtonMale;
-    private RadioButton radioButtonFemale;
-    private Button btnAdd;
+    private EditText edtName2;
+    private RadioButton radioButtonMale2;
+    private RadioButton radioButtonFemale2;
+    private Button btnAdd2;
+    private ImageView imageView;
 
     private String name,height,weight,sex;
     SharedPreferences.Editor edit=Splash.sharedPreferences.edit();
 
+    private int PICK_IMAGE_REQUEST = 1;
+
     private Button LoadImage;
     private Intent intent;
-
-    private int PICK_IMAGE_REQUEST = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile);
+        setContentView(R.layout.edit_profile);
 
         ////////////////////////////////////////////////////////////////////////////////////////////EditText
-        edtName=(EditText) findViewById(R.id.edtName);
+        edtName2=(EditText) findViewById(R.id.edtName2);
+        edtName2.setText(Splash.sharedPreferences.getString("name",null));
 
         ////////////////////////////////////////////////////////////////////////////////////////////Spinner Height
-        spinnerHeight=findViewById(R.id.spinnerHeight);
+        spinnerHeight2=findViewById(R.id.spinnerHeight2);
 
         HeightItems = new ArrayList<String>();
         for (int i=0;i<10;i++)
@@ -65,10 +68,13 @@ public class Profile extends Activity
             HeightItems.add("2.0"+i+" متر");
         for (int i=10;i<=50;i++)
             HeightItems.add("2."+i+" متر");
-        ArrayAdapter arrayAdapterHeight = new ArrayAdapter(Profile.this, android.R.layout.simple_spinner_dropdown_item, HeightItems);
-        spinnerHeight.setAdapter(arrayAdapterHeight);
+        ArrayAdapter arrayAdapterHeight = new ArrayAdapter(EditProfile.this, android.R.layout.simple_spinner_dropdown_item, HeightItems);
+        spinnerHeight2.setAdapter(arrayAdapterHeight);
 
-        spinnerHeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        int spinnerPosition=arrayAdapterHeight.getPosition(Splash.sharedPreferences.getString("height","1.00 متر"));
+        spinnerHeight2.setSelection(spinnerPosition);
+
+        spinnerHeight2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
@@ -86,16 +92,19 @@ public class Profile extends Activity
         });
 
         ////////////////////////////////////////////////////////////////////////////////////////////Spinner Weight
-        spinnerWeight=findViewById(R.id.spinnerWeight);
+        spinnerWeight2=findViewById(R.id.spinnerWeight2);
 
         WeightItems = new ArrayList<String>();
         for (int i=20;i<=200;i++)
             WeightItems.add(i+" کیلو گرم");
 
-        ArrayAdapter arrayAdapterWeight = new ArrayAdapter(Profile.this, android.R.layout.simple_spinner_dropdown_item, WeightItems);
-        spinnerWeight.setAdapter(arrayAdapterWeight);
+        ArrayAdapter arrayAdapterWeight = new ArrayAdapter(EditProfile.this, android.R.layout.simple_spinner_dropdown_item, WeightItems);
+        spinnerWeight2.setAdapter(arrayAdapterWeight);
 
-        spinnerWeight.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
+        int spinnerPosition2=arrayAdapterWeight.getPosition(Splash.sharedPreferences.getString("weight","20 کیلوگرم"));
+        spinnerWeight2.setSelection(spinnerPosition2);
+
+        spinnerWeight2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
@@ -113,10 +122,15 @@ public class Profile extends Activity
         });
 
         ////////////////////////////////////////////////////////////////////////////////////////////RadioGroup
-        radioButtonMale=(RadioButton) findViewById(R.id.radioButtonMale);
-        radioButtonFemale=(RadioButton) findViewById(R.id.radioButtonFemale);
+        radioButtonMale2=(RadioButton) findViewById(R.id.radioButtonMale2);
+        radioButtonFemale2=(RadioButton) findViewById(R.id.radioButtonFemale2);
 
-        radioButtonMale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        if (Splash.sharedPreferences.getString("sex",null).compareTo("male")==0)
+            radioButtonMale2.setChecked(true);
+        else
+            radioButtonFemale2.setChecked(true);
+
+        radioButtonMale2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b)
@@ -130,7 +144,7 @@ public class Profile extends Activity
             }
         });
 
-        radioButtonFemale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        radioButtonFemale2.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
         {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b)
@@ -145,7 +159,11 @@ public class Profile extends Activity
         });
 
         ////////////////////////////////////////////////////////////////////////////////////////////Image
-        LoadImage = (Button)findViewById(R.id.btnImage);
+        imageView = (ImageView) findViewById(R.id.Image2);
+        imageView.setImageResource(0);
+        imageView.setBackgroundResource(R.drawable.white);
+        imageView.setImageBitmap(decodeBase64(Splash.sharedPreferences.getString("image",null)));
+        LoadImage = (Button)findViewById(R.id.btnImage2);
 
         LoadImage.setOnClickListener(new View.OnClickListener()
         {
@@ -163,27 +181,27 @@ public class Profile extends Activity
         });
 
         ////////////////////////////////////////////////////////////////////////////////////////////Button Add
-        btnAdd=(Button) findViewById(R.id.btnAdd);
+        btnAdd2=(Button) findViewById(R.id.btnAdd2);
 
-        btnAdd.setOnClickListener(new View.OnClickListener()
+        btnAdd2.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                name=edtName.getText().toString();
+                name=edtName2.getText().toString();
                 edit.putString("name",name);
                 edit.commit();
 
                 if (Splash.sharedPreferences.getString("name",null)==null || Splash.sharedPreferences.getString("height",null)==null || Splash.sharedPreferences.getString("weight",null)==null
                         || Splash.sharedPreferences.getString("sex",null)==null)
                 {
-                    Toast.makeText(Profile.this,"لطفاٌ اطلاعات را تکمیل نمایید",Toast.LENGTH_LONG).show();
+                    Toast.makeText(EditProfile.this,"لطفاٌ اطلاعات را تکمیل نمایید",Toast.LENGTH_LONG).show();
                 }
                 else
                 {
                     edit.putBoolean("flag", false);
                     edit.commit();
-                    intent = new Intent(Profile.this, Menu.class);
+                    intent = new Intent(EditProfile.this, Menu.class);
                     startActivity(intent);
                     finish();
                 }
@@ -207,7 +225,7 @@ public class Profile extends Activity
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 // Log.d(TAG, String.valueOf(bitmap));
 
-                ImageView imageView = (ImageView) findViewById(R.id.Image);
+                imageView = (ImageView) findViewById(R.id.Image2);
                 imageView.setImageResource(0);
                 imageView.setBackgroundResource(R.drawable.white);
                 imageView.setImageBitmap(bitmap);
@@ -234,6 +252,14 @@ public class Profile extends Activity
 
         Log.d("Image Log:", imageEncoded);
         return imageEncoded;
+    }
+
+    // method for base64 to bitmap
+    public static Bitmap decodeBase64(String input)
+    {
+        byte[] decodedByte = Base64.decode(input, 0);
+        return BitmapFactory
+                .decodeByteArray(decodedByte, 0, decodedByte.length);
     }
 
 }// end of class

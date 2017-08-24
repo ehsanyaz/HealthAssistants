@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -17,6 +18,8 @@ public class Menu extends Activity {
     private TextView sleeptime;
 
     private LinearLayout foodLayout,stepLayout;
+
+    private ImageView imgEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,17 @@ public class Menu extends Activity {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent(getApplicationContext(),StepMenu.class);
+                startActivity(intent);
+            }
+        });
+
+        imgEdit=(ImageView) findViewById(R.id.imgEdit);
+        imgEdit.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(Menu.this, EditProfile.class);
                 startActivity(intent);
             }
         });
