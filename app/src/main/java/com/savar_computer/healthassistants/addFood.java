@@ -17,6 +17,8 @@ import com.savar_computer.healthassistants.Classes.BlackBoard;
 
 public class addFood extends ListActivity {
 
+
+
     private String Matn[][];
     private String title[];
     private String value[];
@@ -32,22 +34,8 @@ public class addFood extends ListActivity {
         pref = PreferenceManager.getDefaultSharedPreferences(this);
 
 
-        switch (BlackBoard.addFoodSelected) {
-            case food:
 
-                break;
-            case fast_food:
 
-                break;
-            case drink:
-
-                break;
-            case fruit:
-
-                break;
-            default:
-                break;
-        }
         BlackBoard.addFoodSelected = null;
 
         this.Matn = BlackBoard.getMatn(BlackBoard.addFoodSelected);
@@ -79,7 +67,8 @@ public class addFood extends ListActivity {
 
             TextView Title = (TextView) row.findViewById(R.id.add_food_raw_title);
             TextView Value = (TextView) row.findViewById(R.id.add_food_raw_value);
-            TextView Callery=(TextView) row.findViewById(R.id.add_food_raw_callery);
+            TextView Callery = (TextView) row.findViewById(R.id.add_food_raw_callery);
+            ImageView Icon=(ImageView) row.findViewById(R.id.raw_image);
 
             if (!pref.getBoolean("Light", false)) {
                 //do nothing
@@ -109,6 +98,23 @@ public class addFood extends ListActivity {
             Title.setText(title[position]);
             Value.setText(value[position]);
             Callery.setText(callery[position]);
+
+           /* switch (BlackBoard.addFoodSelected) {
+                case food:
+                    Icon.setImageResource(R.drawable.food);
+                    break;
+                case fast_food:
+                    Icon.setImageResource(R.drawable.fastfood);
+                    break;
+                case drink:
+                    Icon.setImageResource(R.drawable.drink);
+                    break;
+                case fruit:
+                   Icon.setImageResource(R.drawable.fruit);
+                    break;
+                default:
+                    break;
+            }*/
 
             return (row);
         }

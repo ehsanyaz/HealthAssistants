@@ -7,9 +7,12 @@
     android:id="@+id/add_food_raw">
 
     <ImageView
-        android:id="@+id/add_food_raw_imageIcon"
+        android:id="@+id/raw_image"
         android:layout_width="100dp"
-        android:layout_height="100dp" />
+        android:layout_height="100dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/food"/>
 
     <TextView
         android:id="@+id/add_food_raw_title"
