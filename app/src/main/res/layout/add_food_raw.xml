@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="right"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/add_food_raw">
 
     <ImageView
         android:id="@+id/add_food_raw_imageIcon"

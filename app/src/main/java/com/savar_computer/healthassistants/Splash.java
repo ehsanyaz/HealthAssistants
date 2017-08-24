@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.savar_computer.healthassistants.Classes.BlackBoard;
 import com.savar_computer.healthassistants.Classes.RunningHuman;
 import com.savar_computer.healthassistants.Classes.notification;
 
@@ -30,6 +31,8 @@ public class Splash extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
+
+        new BlackBoard(getApplicationContext());
 
         notification nt=new notification(getApplicationContext());
         nt.sendNotification("سلام!مدتی بود به ما سر نزده بودی!!!","همیار سلامت",1);

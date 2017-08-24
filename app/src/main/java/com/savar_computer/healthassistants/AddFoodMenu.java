@@ -17,6 +17,7 @@ public class AddFoodMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_food_menu);
 
+        BlackBoard.addFoodSelected= BlackBoard.FoodSelected.food;
 
         food=(ImageView)findViewById(R.id.add_food_food);
         food.setOnClickListener(new View.OnClickListener() {
