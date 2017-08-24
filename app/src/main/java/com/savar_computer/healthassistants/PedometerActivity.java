@@ -61,7 +61,8 @@ public class PedometerActivity extends Activity implements SensorEventListener
             @Override
             public void onClick(View view)
             {
-                textView1.setText("0");
+                textView2.setText("0");
+                textView4.setText("0 متر");
                 a=true;
                 aa=true;
             }
